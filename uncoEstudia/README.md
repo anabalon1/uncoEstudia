@@ -4,6 +4,13 @@
 Install the dependencies
 ```
 npm install
+
+- express
+- mongoose
+- server
+- react-router-dom
+- bootstrap
+ 
 ```
 Make sure that MongoDB is running
 ```
