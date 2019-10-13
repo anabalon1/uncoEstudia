@@ -4,9 +4,29 @@ export default class Register extends Component {
   constructor() {
     super();
     this.state = {
+      nombre:'',
+      apellido:'',
+      userName:'',
       email: '',
       password: ''
     };
+  }
+
+  onChangeNombre = (n) => {
+    this.setState({
+      nombre: n.target.value
+    })
+  }
+
+  onChangeApellido = (a) => {
+    this.setState({
+      apellido: a.target.value
+    })
+  }
+  onChangeUserName = (u) => {
+    this.setState({
+      userName: u.target.value
+    })
   }
 
   onChangeEmail = (e) => {
@@ -54,32 +74,76 @@ export default class Register extends Component {
               <div className="card-body">
                 <h5 className="card-title text-center">Registro</h5>
                 <form className="form-signin" onSubmit={this.onSubmit}>
+                
+                <div className="form-label-group">
+                <label for="inputEmail">Nombre </label>
+                    <input 
+                    id="nombre"
+                    name="nombre" 
+                    type="text" 
+                    placeholder="Nombre" 
+                    className="form-control" 
+                    onChange={this.onChangeNombre}/>
+                    
+                  </div>
+
                   <div className="form-label-group">
+                  <label for="inputApellido">Apellido </label>
+                    <input 
+                    id="apellido"
+                    name="apellido" 
+                    type="text" 
+                    placeholder="Apellido" 
+                    className="form-control" 
+                    onChange={this.onChangeApellido}/>
+                   
+                  </div>
+
+                  <div className="form-label-group">
+                  <label for="inputApellido">nombre de usuario </label>
+                    <input 
+                    id="userName"
+                    name="userName" 
+                    type="text" 
+                    placeholder="nombre de usuario" 
+                    className="form-control" 
+                    onChange={this.onChangeUserName}
+                    required/>
+                    
+                  </div>
+
+                  <div className="form-label-group">
+                  <label for="inputEmail">Email </label>
                     <input 
                     id="email"
                     name="email" 
                     type="text" 
                     placeholder="ejemplo@ejemplo.com" 
                     className="form-control" 
-                    onChange={this.onChangeEmail}/>
-                    <label for="inputEmail">Email </label>
+                    onChange={this.onChangeEmail}
+                    required/>
+                    
                   </div>
 
                   <div className="form-label-group">
+                  <label for="inputPassword">Password</label>
                     <input 
                       id="pwd" 
                       name="password" 
                       type="password"
                       placeholder="password" 
                       className="form-control" 
-                      onChange={this.onChangePwd}/>
-                    <label for="inputPassword">Password</label>
+                      onChange={this.onChangePwd}
+                      required/>
+                    
                   </div>
+
                   <button 
                     className="btn btn-lg btn-primary btn-block text-uppercase" 
                     type="submit">
                       Registrar
                   </button>
+
                 </form>
               </div>
             </div>

@@ -2,12 +2,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
-
+//--------------DATOS DEL USUARIO--------------
 const UserSchema = new mongoose.Schema({
+  nombre: { type: String },
+  apellido: { type: String },
+  userName:{type:String},
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
 });
-
+//--------------ENCRIPTACION DE LA CONTRASEÑA--------------
 UserSchema.pre('save', function(next) {
   if (this.isNew || this.isModified('password')) {
     const document = this;
@@ -23,7 +26,7 @@ UserSchema.pre('save', function(next) {
     next();
   }
 });
-
+//--------------CAPARACION DE CANTRASEÑAS--------------
 UserSchema.methods.isCorrectPassword = function(password, callback) {
   bcrypt.compare(password, this.password, function(err, same) {
     if (err) {

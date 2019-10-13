@@ -11,7 +11,7 @@ const cors = require ('cors');
 
 
 
-
+//--------------CONFIGURACION DEL SERVIDOR--------------
 const app = express();
 
 const secret = 'mysecretsshhh';
@@ -74,8 +74,8 @@ res.json('Curso deleted');
 
 //--------------REGISTRO--------------
 app.post('/api/register', function(req, res) {
-  const { email, password } = req.body;
-  const user = new User({ email, password });
+  const { nombre,apellido,userName,email, password } = req.body;
+  const user = new User({ nombre,apellido,userName,email, password });
   user.save(function(err) {
     if (err) {
       console.log(err);
@@ -85,7 +85,22 @@ app.post('/api/register', function(req, res) {
     }
   });
 });
-//--------------LOGIN--------------
+//--------------LOGIN/USUARIO--------------
+
+app.get('/api/getUsuario', async (req, res) => {
+  try {
+      const usuarios = await User.find();
+      res.json(usuarios);
+  }
+  catch (err) {
+      res.status(400).json({
+          error: err
+      })
+    };
+
+  })
+
+
 app.post('/api/authenticate', function(req, res) {
   const { email, password } = req.body;
   User.findOne({ email }, function(err, user) {
