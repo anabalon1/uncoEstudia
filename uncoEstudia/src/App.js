@@ -3,7 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
 import Login from './Login';
-import NuevoCurso from './nuevoCurso'
+import NuevoCurso from './nuevoCurso';
+import CarritoCompra from './componentes/carritoCompra/carritoCompra';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Register from './Register';
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/nuevoCurso" component={NuevoCurso} />
+          <Route path="/carritocompra" component={CarritoCompra} />
          
         </Switch>
         <Footer></Footer>

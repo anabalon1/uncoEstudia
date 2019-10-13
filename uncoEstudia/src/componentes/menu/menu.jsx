@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FiShoppingCart } from 'react-icons/fi';
 import './menu.css';
 
 class Menu extends React.Component {
@@ -13,6 +14,7 @@ class Menu extends React.Component {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ml-auto">
+          <Link to="/carritocompra" className="nav-item nav-link" > <h5><FiShoppingCart /></h5></Link>
             <Link to="/login" className="nav-item nav-link" >ingresar</Link>
             <Link to="/register" className="nav-item nav-link" >registro</Link>
           </div>

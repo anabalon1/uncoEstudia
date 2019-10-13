@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Inicio from './componentes/inicio/inicio';
 import CursoCard from './componentes/curso-card/cursoCard'
-import Carousel from 'react-bootstrap/Card';
+import { FaPlus } from 'react-icons/fa';
 
 
 export default class Home extends Component {
@@ -37,7 +37,7 @@ export default class Home extends Component {
               </div>
             </div>
 
-            <Link to="/nuevoCurso"> <button className="btn btn-primary">+Curso</button></Link>
+            <Link to="/nuevoCurso"> <button className="btn btn-primary"><FaPlus/> Curso</button></Link>
 
             <div className="row">
               {
@@ -47,6 +47,7 @@ export default class Home extends Component {
                  {curso.descripcion}
                  {curso.valor}
                 </CursoCard>
+             
                 )
               }
             </div>
